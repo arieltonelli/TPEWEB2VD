@@ -1,5 +1,8 @@
 <?php
 require_once "Controller/BookController.php";
+require_once "Controller/PublisherController.php";
+require_once "Controller/LoginController.php";
+require_once "Controller/PublicController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,23 +18,92 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
     $params = explode('/', $action);
 
     $bookController = new BookController();
+    $publisherController = new PublisherController();
+    $loginController = new LoginController();
+    $publicController = new PublicController();
 
     // determina que camino seguir según la acción
     switch ($params[0]) {
+        case 'login': 
+            $loginController->login(); 
+            break;
+        case 'logout': 
+            $loginController->logout(); 
+            break;
+        case 'verify': 
+            $loginController->verifyLogin(); 
+            break;
+        case 'register': 
+            $loginController->register(); // Registrarse
+            break;   
+        case 'verifyregister': 
+            $loginController->verifyregister(); // verificar registro
+            break;
+        case 'admHome': 
+            $loginController->admHome(); 
+            break;
+        case 'users': 
+            $loginController->showUsers(); 
+            break;
+        case 'deleteUser': 
+            $loginController->deleteUser($params[1]); 
+            break;
+        case 'updateUser':
+            $loginController->updateUser($params[1]); 
+            break;
+        case 'createUser':
+            $loginController->createUser(); 
+            break;
         case 'home': 
-            $bookController->showHome(); 
+            $publicController->showHome(); 
+            break;
+        case 'books': 
+            $bookController->showBooks(); 
+            break;
+        case 'publicBooks': 
+            $publicController->showPublicBooks(); 
             break;
         case 'createBook': 
             $bookController->createBook(); 
             break;
-      case 'deleteBook': 
+        case 'deleteBook': 
             $bookController->deleteBook($params[1]); 
             break;
-/*          case 'updateBook': 
-            $bookController->updateBook($params[1]); 
+        case 'updateBook': 
+            $bookController->updateBook(); 
             break;
-*/        case 'viewBook': 
+        case 'updatePublisher': 
+            $publisherController->updatePublisher(); 
+            break;
+        case 'formUpdateBook': 
+            $bookController->viewFormUpdateBook($params[1]); 
+            break;
+        case 'formUpdatePublisher': 
+            $publisherController->viewFormUpdatePublisher($params[1]); 
+            break;
+        case 'viewBook': 
             $bookController->viewBook($params[1]); 
+            break;
+        case 'publicViewBook': 
+            $publicController->viewPublicBook($params[1]); 
+            break;
+        case 'category': 
+            $publisherController->showCategory(); 
+            break;
+        case 'publicCategories': 
+            $publicController->showPublicCategories(); 
+            break;
+        case 'createPublisher': 
+            $publisherController->createPublisher(); 
+            break;
+        case 'deletePublisher': 
+            $publisherController->deletePublisher($params[1]); 
+            break;
+        case 'viewPublisher': 
+            $bookController->viewBooksByCategory($params[1]); 
+            break;
+        case 'viewPublicPublisher': 
+            $publicController->publicViewBooksByCategory($params[1]); 
             break;
         default: 
             echo('404 Page not found'); 

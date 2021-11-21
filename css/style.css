@@ -1,5 +1,32 @@
-.finalizada {
-
-    color: gray;
-   
+body{
+    background-image: url(../Images/booksbackground.jpg);
+    background-size: auto;
+    background-repeat: repeat;
+    background-blend-mode:difference;
+    font-family: 'Zen Kurenaido', sans-serif;
+    display: grid;
+    justify-content:center;
+    text-align: justify;
+    
 }
+
+
+footer{ 
+   
+        font-weight: bold;
+        text-align: center;
+        background-color: aquamarine;
+        opacity: .95;
+}
+    
+
+
+li {
+    list-style: none;
+}
+
+img{width: 100%;
+
+
+}
+
