@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+{include file='templates/nav.tpl'}
 
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$nombre}</h1>
 
@@ -32,8 +33,8 @@
     Password <input type="password" name="password" id="password">
     <input type="submit" value="Cargar"></div>
 </form>
-<ul>
-<li><a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a></li>
-<li><a class="btn btn-danger" href="logout">Log Out</a></li>
-</ul>
+
+<a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
+<a class="btn btn-danger" href="logout">Log Out</a>
+
 {include file='templates/footer.tpl'}

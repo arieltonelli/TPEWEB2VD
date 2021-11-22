@@ -7,19 +7,17 @@ class LoginView{
 
     function __construct(){
         $this->smarty = new Smarty();
-
-
     }
 
     function ShowLogin($error = ""){
         $this->smarty->assign('titulo','Log In');
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
-       
     }
     
     function showAdmHome($admin){
-        $this->smarty->assign('titulo','Bienvenido administrador/a');
+        $this->smarty->assign('tituloAdm','Bienvenido a la Base de Datos de The Bookshop');
+        $this->smarty->assign('tituloUser','Bienvenido a The Bookshop');
         $this->smarty->assign('admin', $admin);
         $this->smarty->display('templates/admHome.tpl');
     }
@@ -30,16 +28,15 @@ class LoginView{
         $this->smarty->display('templates/showRegister.tpl');
     }
 
-    function ShowUsers($users){
+    function ShowUsers($users, $admin){
         $this->smarty->assign('nombre','Lista de Usuarios');
         $this->smarty->assign('users',$users);
+        $this->smarty->assign('admin',$admin);
         $this->smarty->display('templates/userList.tpl');
-       
     }
     
     function showUsersLocation(){
         header("Location: ".BASE_URL."users");
-
     }
 
     function getAdmin($email){

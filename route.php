@@ -25,19 +25,19 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
     // determina que camino seguir según la acción
     switch ($params[0]) {
         case 'login': 
-            $loginController->login(); 
+            $loginController->login();  //form para loguearse
             break;
         case 'logout': 
-            $loginController->logout(); 
+            $loginController->logout(); // desloguearse
             break;
         case 'verify': 
-            $loginController->verifyLogin(); 
+            $loginController->verifyLogin(); // verificar logueo
             break;
         case 'register': 
-            $loginController->register(); // Registrarse
+            $loginController->register(); // Formulario de registro usuario nuevo
             break;   
         case 'verifyregister': 
-            $loginController->verifyregister(); // verificar registro
+            $loginController->verifyregister(); // verificar datos de registro y agrega usuario a la bd
             break;
         case 'admHome': 
             $loginController->admHome(); 
@@ -60,9 +60,9 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
         case 'books': 
             $bookController->showBooks(); 
             break;
-        case 'publicBooks': 
+        /*case 'publicBooks': 
             $publicController->showPublicBooks(); 
-            break;
+            break;*/
         case 'createBook': 
             $bookController->createBook(); 
             break;
@@ -84,15 +84,15 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
         case 'viewBook': 
             $bookController->viewBook($params[1]); 
             break;
-        case 'publicViewBook': 
+        /*case 'publicViewBook': 
             $publicController->viewPublicBook($params[1]); 
-            break;
+            break;*/
         case 'category': 
             $publisherController->showCategory(); 
             break;
-        case 'publicCategories': 
+        /*case 'publicCategories': 
             $publicController->showPublicCategories(); 
-            break;
+            break;*/
         case 'createPublisher': 
             $publisherController->createPublisher(); 
             break;
@@ -102,11 +102,10 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
         case 'viewPublisher': 
             $bookController->viewBooksByCategory($params[1]); 
             break;
-        case 'viewPublicPublisher': 
+        /*case 'viewPublicPublisher': 
             $publicController->publicViewBooksByCategory($params[1]); 
-            break;
+            break;*/
         default: 
             echo('404 Page not found'); 
             break;
-  
         }

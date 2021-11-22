@@ -1,7 +1,9 @@
 {include file='templates/header.tpl'}
+{include file='templates/nav.tpl'}
+
 
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$titulo}</h1>
-<div>
+<div class="p-3 mb-2 bg-warning text-dark" style="--bs-bg-opacity: .97;">
      <form action="updateBook" method="POST">
         <input type="hidden" value={$id} name="id_book" id="id_book">
         Titulo <input placeholder = "Título" type="text" name="title" id="title" required>
@@ -20,10 +22,9 @@
 
 </div>
 
-<ul>
-<li><a href="books"> Volver a Lista Libros </a></li>
-<li><a href="admHome"> Volver a Home Administrador </a></li>
-<li><a class="btn btn-danger" href="logout">Log Out</a></li>
-</ul>
+<a href="books" class="btn btn-info"> Volver a Lista de Libros </a>
+<a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
+<a class="btn btn-danger" href="logout">Log Out</a>
+
 
 {include file='templates/footer.tpl'}

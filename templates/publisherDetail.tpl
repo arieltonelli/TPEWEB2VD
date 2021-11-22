@@ -7,7 +7,7 @@
 </ul>
 
 
-<h3 class="bg-success p-3" style="--bs-bg-opacity: .98;"> Lista de Libros de la Editorial {$editorial->name}: </h2>
+<h2 class="bg-success p-3" style="--bs-bg-opacity: .98;"> Lista de Libros de la Editorial {$editorial->name}: </h2>
 
 <table class="table table-light table-hover">
   <thead>
@@ -31,10 +31,10 @@
 </table>
 
 
-<ul>
-<li><a href="category"  class="btn btn-info"> Volver a Lista Editoriales </a></li>
-<li><a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a></li>
-<li><a class="btn btn-danger" href="logout">Log Out</a></li>
-</ul>
+
+<a href="category"  class="btn btn-info"> Volver a Lista Editoriales </a>
+<a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
+<a class="btn btn-danger" href="logout">Log Out</a>
+
 
 {include file='templates/footer.tpl'}

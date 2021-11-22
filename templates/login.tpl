@@ -9,7 +9,7 @@
     </form>
     <img src="./Images/login.jpg" class="img-thumbnail" alt="girl log"></div>
     <div class="bg-danger p-2" style="--bs-bg-opacity: .98;"> <h2>{$error}</h2> </div>
-    <a class="btn btn-danger" href="register">Registarse como Administrador<a>
+    <a class="btn btn-danger" href="register">Registrarse<a>
     <a href="home" class="btn btn-light"> Volver a inicio público <a>
     
 

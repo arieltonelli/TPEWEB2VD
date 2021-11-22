@@ -2,7 +2,7 @@
 {include file='templates/nav.tpl'}
 
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$titulo}</h1>
-<img src="./Images/booklist.jpg" class="img-thumbnail" alt="lista de libros">
+
 <table class="table table-light table-hover">
   <thead>
     <tr>
@@ -10,8 +10,10 @@
       <th scope="col">Autor</th>
       <th scope="col">Editorial</th>
       <th scope="col">Precio (ARS)</th>
+      {if $admin}
       <th scope="col">Editar</th>
       <th scope="col">Borrar</th>
+      {/if}
     </tr>
   </thead>
   <tbody>
@@ -21,13 +23,16 @@
       <td>{$book->author}</td>
       <td>{$book->name}</td>
       <td>{$book->price}</td>
+      {if $admin}
       <td><a href="formUpdateBook/{$book->id_book}" class="btn btn-warning">Editar</a></td>
       <td><a href="deleteBook/{$book->id_book}" class="btn btn-danger">Borrar</a></td>
+      {/if}
     </tr>
     {/foreach}
   </tbody>
 </table>
 
+{if $admin}
 <div class="p-3 mb-2 bg-warning text-dark" style="--bs-bg-opacity: .98;">
 <h2 > Crear Libro: </h2>
 
@@ -44,8 +49,14 @@
     <input type="submit" value="Cargar">
     </form>
 </div>
-<ul>
-<li><a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a></li>
-<li><a class="btn btn-danger" href="logout">Log Out</a></li>
-</ul>
+{/if}
+
+{if $admin}
+<a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
+{else}
+<a href="admHome" class="btn btn-secondary"> Volver a Home</a>
+{/if}
+
+<a class="btn btn-danger" href="logout">Log Out</a>
+
 {include file='templates/footer.tpl'}

@@ -13,7 +13,7 @@ class PublicView{
        
     }
 
-    function showPublicBooks($books, $publishers){
+    /*function showPublicBooks($books, $publishers){
     $this->smarty->assign('titulo','Lista de Libros');
     $this->smarty->assign('books',$books);
     $this->smarty->assign('publishers',$publishers);
@@ -26,14 +26,14 @@ class PublicView{
         $this->smarty->display('templates/publicBookDetail.tpl');
     
     }
-
+*/
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
 
     }
 
     
-    function ShowBooksbyCategory($books, $publishers){
+   /* function ShowBooksbyCategory($books, $publishers){
         $this->smarty->assign('titulo','Lista de Libros de la Editorial');
         $this->smarty->assign('books',$books);
         $this->smarty->assign('editorial',$publishers);
@@ -41,6 +41,7 @@ class PublicView{
        
     }
 
+    
     function showPublicPublishers($publishers){
         $this->smarty->assign('nombre','Lista de Editoriales');
         $this->smarty->assign('publishers',$publishers);
@@ -48,6 +49,6 @@ class PublicView{
        
         }
 
-   
+   */
 
 }

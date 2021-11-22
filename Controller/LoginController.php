@@ -64,15 +64,15 @@ class LoginController{
             $username = $_POST['email'];
             $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
             $this->model->insertRegister($username, $password);
+            $this->view->showAdmHome($admin);
         }
-        $this->view->showAdmHome();
     }
     
     function showUsers(){
         $this->AuthHelper->checkLoggedIn();
+        $admin = $this->model->getAdmin($_SESSION["email"]);
         $users = $this->model->getUsers();
-        $this->view->showUsers($users);
-       
+        $this->view->showUsers($users, $admin);
     }
 
     function deleteUser($id){

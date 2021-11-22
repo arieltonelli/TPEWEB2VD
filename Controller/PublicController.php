@@ -26,32 +26,32 @@ class PublicController{
         $this->publicView->showHome();  
     }
 
-    function showPublicBooks(){
+    /*function showPublicBooks(){
         $this->AuthHelper->checkLoggedIn();
         $books = $this->bookModel->getBooks();
         $publishers = $this->publisherModel->getPublishers();
         $this->publicView->showPublicBooks($books, $publishers);  
-    }
+    }*/
 
-    function viewPublicBook($id){
+    /*function viewPublicBook($id){
         $this->AuthHelper->checkLoggedIn();
         $book= $this->bookModel->getBook($id);
         $this->publicView->showPublicBook($book);
-    }
+    }*/
 
-    function publicViewBooksByCategory($id){
+    /*function publicViewBooksByCategory($id){
         $this->AuthHelper->checkLoggedIn();
         $books = $this->bookModel->getBooksbyCategory($id);
         $publisher = $this->publisherModel->getPublisherByID($id);
         $this->publicView->showBooksbyCategory($books, $publisher);
-    }
+    }*/
 
-    function showPublicCategories(){
+   /* function showPublicCategories(){
         $this->AuthHelper->checkLoggedIn();
         $publishers = $this->publisherModel->getPublishers();
         $this->publicView->showPublicPublishers($publishers);
        
-    }
+    }*/
 
 
 }

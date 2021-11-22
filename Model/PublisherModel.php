@@ -33,4 +33,5 @@ class PublisherModel{
         $sentencia = $this->db->prepare("UPDATE publishers SET name=?, language=? WHERE id_publisher=?");
         $sentencia->execute(array($name, $language, $id));
     }
+
 } 
