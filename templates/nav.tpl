@@ -17,7 +17,7 @@
         <li class="btn btn-outline-success"><a href= "category" class="btn btn-primary">Ver nuestras Editoriales</a></li>
       {/if}
       {if $admin}
-        <li class="btn btn-outline-success"><a href= "users" class="btn btn-secondary">Ver/Modificar Usuarios (Administrador)</a></li>
+        <li class="btn btn-outline-success"><a href= "users" class="btn btn-secondary">Ver/Modificar Usuarios</a></li>
       {/if}
     </ul>
   </div>

@@ -49,6 +49,10 @@ class LoginController{
         }
     }
 
+    function showHome(){
+        $this->view->showHome();  
+    }
+
     function admHome(){
         $this->AuthHelper->checkLoggedIn();
         $admin = $this->model->getAdmin($_SESSION["email"]);
@@ -61,9 +65,11 @@ class LoginController{
 
     function verifyregister(){
         if(!empty($_POST['email']) && !empty($_POST['password'])){
-            $username = $_POST['email'];
+            $email = $_POST['email'];
             $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
-            $this->model->insertRegister($username, $password);
+            $_SESSION["email"] = $email;
+            $admin = $this->model->getAdmin($_SESSION["email"]);
+            $this->model->insertRegister($email, $password);
             $this->view->showAdmHome($admin);
         }
     }

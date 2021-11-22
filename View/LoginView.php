@@ -14,6 +14,17 @@ class LoginView{
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
     }
+
+    function ShowHome(){
+        $this->smarty->assign('titulo','Bienvenidos a The Bookshop');
+        $this->smarty->display('templates/home.tpl');
+       
+    }
+
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
+
+    }
     
     function showAdmHome($admin){
         $this->smarty->assign('tituloAdm','Bienvenido a la Base de Datos de The Bookshop');

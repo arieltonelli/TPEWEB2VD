@@ -11,9 +11,9 @@ class LoginModel{
         return $query->fetch(PDO::FETCH_OBJ);
     }
     
-    function insertRegister($username, $password){
+    function insertRegister($email, $password){
         $sentencia = $this->db->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-        $sentencia->execute(array($username, $password));
+        $sentencia->execute(array($email, $password));
     }
 
     function getUsers(){

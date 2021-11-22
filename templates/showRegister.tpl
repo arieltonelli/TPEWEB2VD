@@ -7,11 +7,11 @@
 <form action="verifyregister" method="POST">
     <input placeholder = "email" type="text" name="email" id="email" required>
     <input placeholder = "password" type="password" name="password" id="password" required>
-    <input class="btn btn-danger" type="submit" value="Register">
-    </form>
-    <img src="./Images/register.jpg" class="img-thumbnail" alt="girl reg"></div>
+    <input class="btn btn-danger" type="submit" value="Registrarse">
+    </form></div>
+    <a class="btn btn-warning" href="register">Si ya tienes usuario: logueate aquí<a>
+    <img src="./Images/register.jpg" class="img-thumbnail" alt="girl reg">
     <div class="bg-danger p-2" style="--bs-bg-opacity: .98;"> <h2>{$error}</h2> </div>
-
-    <a href="home" class="btn btn-light"> Volver a inicio público <a>
+    <a href="home" class="btn btn-light"> Volver a Home <a>
 
 {include file='templates/footer.tpl'}
