@@ -55,6 +55,9 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
         case 'home': 
             $loginController->showHome(); 
             break;
+        case 'home-csr': 
+            $loginController->showHomeCSR(); 
+            break;
         case 'books': 
             $bookController->showBooks(); 
             break;

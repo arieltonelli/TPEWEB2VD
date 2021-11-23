@@ -34,4 +34,19 @@ class ApiCommentController{
        
        }
     }
+
+    function eliminarComentario($params = null){
+
+        $idComentario = $params[":ID"];
+        $comentario = $this->model->getComment($idComentario);
+        if($comentario){
+        $this->model->deleteCommmentFromDB($idComentario);
+        return $this->view->response("El comentario con el $idComentario fue eliminado", 200);
+        }
+        else{
+           return $this->view->response("El comentario con el id=$idComentario no existe", 404);
+        }  
+    }
+
+
 }

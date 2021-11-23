@@ -1,4 +1,4 @@
-{include file='templates/header.tpl'}
+{if $admin}{include file='templates/header.tpl'}
 {include file='templates/nav.tpl'}
 
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$nombre}</h1>
@@ -31,10 +31,15 @@
 <form action="createUser" method="POST">
     Email <input type="text" name="email" id="email">
     Password <input type="password" name="password" id="password">
-    <input type="submit" value="Cargar"></div>
-</form>
+    <input type="submit" value="Cargar">
+</form></div>
 
 <a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
 <a class="btn btn-danger" href="logout">Log Out</a>
+
+
+{else}
+<a href="admHome" class="btn btn-primary"> Volver a Home <a>
+{/if}
 
 {include file='templates/footer.tpl'}

@@ -57,4 +57,8 @@ class LoginView{
         return $admin == "1";    
     }
     
+
+    function showCommentLayout(){
+        $this->smarty->display('templates/commentLayoutCSR.tpl');
+    }
 }

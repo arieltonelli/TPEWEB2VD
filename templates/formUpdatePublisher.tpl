@@ -18,4 +18,6 @@
 <a href="admHome" class="btn btn-secondary"> Volver a Home Administrador </a>
 <a class="btn btn-danger" href="logout">Log Out</a>
 
+<script src="js/comments.js"></script>
+
 {include file='templates/footer.tpl'}
