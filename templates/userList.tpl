@@ -1,6 +1,6 @@
 {if $admin}{include file='templates/header.tpl'}
 {include file='templates/nav.tpl'}
-
+<div class="bg-light p-3" style="--bs-bg-opacity: .98;">
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$nombre}</h1>
 
 
@@ -25,7 +25,7 @@
     </tr>
     {/foreach}
   </tbody>
-</table>
+</table> </div>
 
 <div class="p-3 mb-2 bg-warning text-dark" style="--bs-bg-opacity: .97;"><h2 > Crear Usuario: </h2>
 <form action="createUser" method="POST">

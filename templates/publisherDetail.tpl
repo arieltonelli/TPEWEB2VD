@@ -1,6 +1,6 @@
 {include file='templates/header.tpl'}
 {include file='templates/nav.tpl'}
-
+<div class="bg-light p-3" style="--bs-bg-opacity: .98;">
 <ul class="list-group">
     <li class="list-group-item active">    Nombre de la Editorial: {$editorial->name}</li>
     <li class="list-group-item">    Idioma: {$editorial->language}</li>
@@ -28,7 +28,7 @@
     </tr>
     {/foreach}
   </tbody>
-</table>
+</table></div>
 
 
 

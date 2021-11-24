@@ -1,5 +1,5 @@
 {include file='templates/header.tpl'}
-
+<div class="bg-light p-3" style="--bs-bg-opacity: .98;">
 {if $admin}
 <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$tituloAdm}</h1>
 {else}
@@ -25,7 +25,7 @@
       {/if}
     </ul>
   </div>
-</nav>
+</nav></div>
 
 {if $admin}
 <img src="./Images/adm.jpg" class="img-thumbnail" alt="data base office">

@@ -5,7 +5,7 @@
 <form action="verify" method="POST">
     <input placeholder = "email" type="text" name="email" id="email" required>
     <input placeholder = "password" type="password" name="password" id="password" required>
-    <input class="btn btn-primary" type="submit" value="Login">
+    <input class="btn btn-primary" type="submit" value="Loguearse">
     </form></div>
     <a class="btn btn-warning" href="register">Registrate aquí si aún no eres usuario!<a>
     <img src="./Images/login.jpg" class="img-thumbnail" alt="girl log">

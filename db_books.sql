@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2021 a las 22:28:21
+-- Tiempo de generación: 24-11-2021 a las 21:15:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -60,7 +60,8 @@ INSERT INTO `books` (`id_book`, `title`, `author`, `price`, `id_publisher`) VALU
 CREATE TABLE `comments` (
   `id_comment` int(11) NOT NULL,
   `subject` varchar(100) DEFAULT NULL,
-  `body` varchar(750) DEFAULT NULL,
+  `body` varchar(400) DEFAULT NULL,
+  `score` set('1','2','3','4','5') DEFAULT NULL,
   `id_book` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -69,8 +70,20 @@ CREATE TABLE `comments` (
 -- Volcado de datos para la tabla `comments`
 --
 
-INSERT INTO `comments` (`id_comment`, `subject`, `body`, `id_book`, `id_user`) VALUES
-(1, 'Hola', 'Muy bueno todo', 1, 1);
+INSERT INTO `comments` (`id_comment`, `subject`, `body`, `score`, `id_book`, `id_user`) VALUES
+(27, 'Hola', 'PRUEBA', '4', 1, 1),
+(28, 'Hola', 'PRUEBA', '4', 1, 1),
+(29, 'Hola', 'PRUEBA', '4', 1, 1),
+(30, 'Hola', 'PRUEBA', '4', 1, 1),
+(31, 'Hola', 'PRUEBA', '4', 1, 1),
+(32, 'Hola', 'PRUEBA', '4', 1, 1),
+(35, 'eeeeeeeee', 'eeeeeeeeeeeeeeeeeee', '5', 1, 1),
+(36, 'eeeeeeeee', 'eeeeeeeeeeeeeee', '5', 1, 1),
+(38, 'HOLAAAAA', 'listo', '3', 1, 1),
+(40, 'EEEEEEEEEEEEEEEEEE', 'aaaaaa', '5', 1, 1),
+(42, 'Hola', 'Me encanta el tenis', '5', 23, 1),
+(43, 'Hello', 'No me gustó', '1', 24, 7),
+(44, 'Espectacular', 'Me sirve el libro para cocinar', '5', 27, 7);
 
 -- --------------------------------------------------------
 
@@ -116,9 +129,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`email`, `password`, `rol`, `id_user`) VALUES
 ('ariel@adm.com', '$2y$10$6mrJbLsEMH64SIUQ/uTRNO3ToTNan2vfP7RVyiX3AEqt5U9QuU6Xm', 1, 1),
-('analia@adm.com', '$2y$10$3WrBl181IbPrJYazDa4J5uBrelfztXz1qe7lqKqvOAhuXAYx9QNrW', 1, 2),
 ('pedrito@adm.com', '$2y$10$UC1YHI.XzczcInxiSJ1MX.u1KT9moJG3oswayIHsTVAO8ebl8m0Vm', 0, 3),
-('electra@catmail.com', '$2y$10$ZR1X8ktLlesukMukUWZCaeUTmg.bFeNw2AivfROH7/FsOlPBf94r6', 0, 7);
+('electra@catmail.com', '$2y$10$ZR1X8ktLlesukMukUWZCaeUTmg.bFeNw2AivfROH7/FsOlPBf94r6', 0, 7),
+('analia@adm.com', '$2y$10$xM2xp4d7TUtzFpkBYwkUl.ZpgxkYLnxb/txO1KYsRos3ldox/bPAS', 1, 37),
+('juancito@gmail.com', '$2y$10$gsbq/RtLHpy1aksbFFib1ezPhMVn6VX5CogeI76769mx31UJ3lc9y', 0, 57);
 
 --
 -- Índices para tablas volcadas
@@ -135,7 +149,9 @@ ALTER TABLE `books`
 -- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id_comment`);
+  ADD PRIMARY KEY (`id_comment`),
+  ADD KEY `id_book` (`id_book`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indices de la tabla `publishers`
@@ -157,13 +173,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `books`
 --
 ALTER TABLE `books`
-  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `publishers`
@@ -175,7 +191,7 @@ ALTER TABLE `publishers`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(35) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(35) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- Restricciones para tablas volcadas
@@ -186,6 +202,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`id_publisher`) REFERENCES `publishers` (`id_publisher`);
+
+--
+-- Filtros para la tabla `comments`
+--
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

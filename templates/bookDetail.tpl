@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
 {include file='templates/nav.tpl'}
 
-
+<div class="bg-light p-3" style="--bs-bg-opacity: .98;">
 <ul class="list-group">
     <li class="list-group-item active">    Titulo: {$libro->title}</li>
     <li class="list-group-item">    Autor: {$libro->author}</li>
@@ -9,11 +9,10 @@
     <li class="list-group-item">    Precio: {$libro->price} </li>
 </ul>
 
-<div  class="p-3 mb-2 bg-secondary text-light" style="--bs-bg-opacity: .97;">
+<div class="p-3 mb-2 bg-secondary text-light" style="--bs-bg-opacity: .97;">
+<input type="submit" class="mostrar-comentarios" data-id="{$libro->id_book}" data-rol="{$usuario->rol}" value="Mostrar comentarios de los usuarios"></div>
 
-<h3>Comentarios de los Usuarios:</h3></div>
-
-<div><ul id="lista-comentarios" class=""></ul></div>
+<div class="p-3 mb-2 bg-secondary text-light"><ul id="lista-comentarios" class=""></ul></div>
 
 <div  class="p-3 mb-2 bg-primary text-dark" style="--bs-bg-opacity: .97;"><h4 > Escribe tu comentario aquí: </h4>
 <form action="" method="POST">
@@ -28,8 +27,8 @@
                 <option>1</option>
               </select>
     <input type="hidden" name="id_book" id="id_book" value ="{$libro->id_book}">
-    <input type="submit"class="btn btn-danger" value="Publicar">
-</form></div>
+    <input type="submit" id="submit" class="agregar-comentario" value="Publicar">
+</form></div> </div>
 
 
 <a href="books"  class="btn btn-info"> Volver a Lista Libros </a>

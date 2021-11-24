@@ -8,7 +8,7 @@ class CommentModel{
 
 
     function getComments(){
-        $sentencia = $this->db->prepare("select * from comments");
+        $sentencia = $this->db->prepare("select comments.* , users.email AS email from comments JOIN users ON comments.id_user = users.id_user");
         $sentencia->execute();
         $comentarios = $sentencia-> fetchAll(PDO::FETCH_OBJ);
         return $comentarios;

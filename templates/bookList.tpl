@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
 {include file='templates/nav.tpl'}
 
-<h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$titulo}</h1>
+<div class="bg-light p-3" style="--bs-bg-opacity: .98;"> <h1 class="bg-success p-3" style="--bs-bg-opacity: .98;">{$titulo}</h1>
 
 <table class="table table-light table-hover">
   <thead>
@@ -30,9 +30,9 @@
     </tr>
     {/foreach}
   </tbody>
-</table>
+</table> </div>
 
-{if $admin}
+{if $admin} 
 <div class="p-3 mb-2 bg-warning text-dark" style="--bs-bg-opacity: .98;">
 <h2 > Crear Libro: </h2>
 
