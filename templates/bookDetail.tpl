@@ -16,17 +16,18 @@
 <div><ul id="lista-comentarios" class=""></ul></div>
 
 <div  class="p-3 mb-2 bg-primary text-dark" style="--bs-bg-opacity: .97;"><h4 > Escribe tu comentario aquí: </h4>
-<form action="createComment" method="POST">
-    Email <input type="text" name="email" id="email">
-    Asunto <input type="text" name="asunto" id="asunto">
-    Comentario <textarea type="textarea" name="comentario" id="comentario"></textarea>
-    Puntaje <select name="score" id="score">
+<form action="" method="POST">
+            <input type="hidden" name="id_user" id="id_user" value ="{$usuario->id_user}">
+    Asunto: <input type="text" name="subject" id="subject">
+    Comentario: <textarea type="textarea" name="body" id="body"></textarea>
+    Puntaje: <select name="score" id="score">
                 <option selected>5</option>
                 <option>4</option>
                 <option>3</option>
                 <option>2</option>
                 <option>1</option>
               </select>
+    <input type="hidden" name="id_book" id="id_book" value ="{$libro->id_book}">
     <input type="submit"class="btn btn-danger" value="Publicar">
 </form></div>
 

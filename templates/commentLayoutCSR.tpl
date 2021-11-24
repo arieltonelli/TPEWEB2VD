@@ -2,11 +2,20 @@
 
 
 <div class="p-3 mb-2 bg-warning text-dark" style="--bs-bg-opacity: .97;"><h2 > Crear Comentario: </h2>
-<form action="createUser" method="POST">
-    Email <input type="text" name="email" id="email">
-    Password <input type="password" name="password" id="password">
-    <input type="submit" value="Cargar">
-</form></div>
+<form action="createComment" method="POST">
+            <input type="hidden" name="id_user" id="id_user">
+    Asunto <input type="text" name="subject" id="subject">
+    Comentario <textarea type="textarea" name="body" id="body"></textarea>
+    Puntaje <select name="score" id="score">
+                <option selected>5</option>
+                <option>4</option>
+                <option>3</option>
+                <option>2</option>
+                <option>1</option>
+              </select>
+    Libro <input type="number" name="id_book" id="id_book">
+    <input type="submit"class="btn btn-danger" value="Publicar">
+</div>
 
 
 

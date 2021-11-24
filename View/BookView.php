@@ -15,9 +15,10 @@ class BookView{
         $this->smarty->display('templates/bookList.tpl');
     }
 
-    function showBook($libro, $admin){
+    function showBook($libro, $admin, $usuario){
         $this->smarty->assign('libro', $libro);
-        $this->smarty->assign('admin',$admin);
+        $this->smarty->assign('admin', $admin);
+        $this->smarty->assign('usuario', $usuario);
         $this->smarty->display('templates/bookDetail.tpl');
     }
 

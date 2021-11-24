@@ -13,6 +13,7 @@ class CommentModel{
         $comentarios = $sentencia-> fetchAll(PDO::FETCH_OBJ);
         return $comentarios;
     }
+
     function getComment($id){
         $sentencia = $this->db->prepare( "SELECT * FROM comments WHERE id_comment=?");
         $sentencia->execute(array($id));
@@ -25,5 +26,10 @@ class CommentModel{
         $sentencia->execute(array($id));
         $response = $sentencia->execute(array($id));
     }
-
+    
+    function insertComment( $subject, $body, $score, $id_book, $id_user){
+        $sentencia = $this->db->prepare("INSERT INTO comments (subject, body, score, id_book, id_user) VALUES(?, ?, ?, ?, ?)");
+        $sentencia->execute(array($subject, $body, $score, $id_book, $id_user));
+        return $this->db->lastInsertId();
+    } 
 }

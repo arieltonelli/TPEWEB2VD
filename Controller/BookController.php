@@ -60,7 +60,8 @@ class BookController{
         $this->AuthHelper->checkLoggedIn();
         $book= $this->model->getBook($id);
         $admin = $this->loginModel->getAdmin($_SESSION["email"]);
-        $this->view->showBook($book, $admin);
+        $usuario = $this->loginModel->getUser($_SESSION["email"]);
+        $this->view->showBook($book, $admin, $usuario);
     }
 
     function viewBooksByCategory($id){
