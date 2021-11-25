@@ -1,24 +1,21 @@
 "use strict"
 
+//al finalizar la carga del contenido del DOM, que se ejecute:
 window.addEventListener('DOMContentLoaded', (event) => { 
 
     const API_URL = "http://localhost/web2/TPEVF/api/comentarios";
     
     let lista = document.querySelector("#lista-comentarios");
-
+    //get
     async function getComentarios(){
     //fetch para tareas traer todos los comentarios
-
-
             let response = await fetch(API_URL);
             let comentarios = await response.json();
-        
             let admin = lista.dataset.rol;
-            
             let idLibro = lista.dataset.id;
             render(comentarios, admin, idLibro);
     }
-        
+    //visualización
     function render(comentarios, admin, idLibro){
     
         lista.innerHTML = "";
@@ -27,11 +24,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 for (let comentario of comentarios){
                     if (comentario.id_book == idLibro){
                         console.log(comentario.id_book);
-                        let html =  `<ul><li class="list-group-item active"> Usuario: ${comentario.email}<li>`+
+                        let html =  `<li class="list-group-item active"> Usuario: ${comentario.email}<li>`+
                                         `<li class="list-group-item"> Asunto: ${comentario.subject}<li>`+
                                         `<li class="list-group-item"> Comentario: ${comentario.body}<li>`+
                                         `<li class="list-group-item"> Puntaje: ${comentario.score}<li>`+
-                                        `<li><button data-id="${comentario.id_comment}" class="eliminar" >Borrar (Adm)</button></li></ul>`
+                                        `<li><button data-id="${comentario.id_comment}" class="eliminar" >Borrar (Adm)</button></li>`
                                         lista.innerHTML += html;
                                         }
                                     }
@@ -53,7 +50,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             button.addEventListener("click", borrarComentario);
             });
     }
-
+    //borrar comentario del libro
     async function borrarComentario(e){
         e.preventDefault();
         console.log("borrar");
@@ -72,7 +69,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             document.querySelector("#respuesta").innerHTML = "Error de conexion!"
             }
     }
-
+    //agregar comentario al libro
     async function agregarComentario(e){
         e.preventDefault();
         let subject = document.querySelector("#subject").value;

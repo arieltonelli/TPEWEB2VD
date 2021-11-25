@@ -36,63 +36,60 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
             $loginController->verifyregister(); // verificar datos de registro y agrega usuario a la bd
             break;
         case 'admHome': 
-            $loginController->admHome(); 
+            $loginController->admHome(); // home logueado o registrado
             break;
         case 'users': 
-            $loginController->showUsers(); 
+            $loginController->showUsers(); // muestra lista de usuarios al administrador
             break;
         case 'deleteUser': 
-            $loginController->deleteUser($params[1]); 
+            $loginController->deleteUser($params[1]); //elimina usuario el administrador
             break;
         case 'updateUser':
-            $loginController->updateUser($params[1]); 
+            $loginController->updateUser($params[1]); // cambia el rol del usuario desde la lista de usuarios (admin)
             break;
         case 'createUser':
-            $loginController->createUser(); 
+            $loginController->createUser(); // crea usuario nuevo (administrador)
             break;
         case 'home': 
-            $loginController->showHome(); 
-            break;
-        case 'home-csr': 
-            $loginController->showHomeCSR(); 
+            $loginController->showHome(); // pantalla de inicio de la web
             break;
         case 'books': 
-            $bookController->showBooks(); 
+            $bookController->showBooks(); // lista de libros
             break;
         case 'createBook': 
-            $bookController->createBook(); 
+            $bookController->createBook(); // crea libro desde la lista de libros (admin)
             break;
         case 'deleteBook': 
-            $bookController->deleteBook($params[1]); 
+            $bookController->deleteBook($params[1]); // elimina libro (admin)
             break;
         case 'updateBook': 
-            $bookController->updateBook(); 
+            $bookController->updateBook(); // botón que edita libro desde el formulario de edición (admin)
             break;
         case 'updatePublisher': 
-            $publisherController->updatePublisher(); 
+            $publisherController->updatePublisher(); // botón que edita una editorial desde el formulario de edición (admin)
             break;
         case 'formUpdateBook': 
-            $bookController->viewFormUpdateBook($params[1]); 
+            $bookController->viewFormUpdateBook($params[1]); // muestra el formulario para editar UN libro (admin)
             break;
         case 'formUpdatePublisher': 
-            $publisherController->viewFormUpdatePublisher($params[1]); 
+            $publisherController->viewFormUpdatePublisher($params[1]); // muestra el formulario para editar UNA editorial (admin)
             break;
         case 'viewBook': 
-            $bookController->viewBook($params[1]); 
+            $bookController->viewBook($params[1]); // muestra detalle de libro
             break;
         case 'category': 
-            $publisherController->showCategory(); 
+            $publisherController->showCategory(); // muestra la lista de editoriales (categoría)
             break;
         case 'createPublisher': 
-            $publisherController->createPublisher(); 
+            $publisherController->createPublisher(); // botón que crea una nueva editorial desde formulario en lista de editoriales
             break;
         case 'deletePublisher': 
-            $publisherController->deletePublisher($params[1]); 
+            $publisherController->deletePublisher($params[1]); // botón que elimina UNA editorial desde lista de editoriales
             break;
         case 'viewPublisher': 
-            $bookController->viewBooksByCategory($params[1]); 
+            $bookController->viewBooksByCategory($params[1]); // muestra detalle de una editorial determinada (categoría)
             break;
         default: 
-            echo('404 Page not found'); 
+            echo('404 Page not found'); // otras urls
             break;
         }
