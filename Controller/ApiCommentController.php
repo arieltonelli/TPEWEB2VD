@@ -36,7 +36,7 @@ class ApiCommentController{
         $body = $this->getBody();
         $ultimoID = $this->model->insertComment($body->subject, $body->body, $body->score, $body->id_book, $body->id_user);
         if ($ultimoID != 0) {
-            return $this->view->response("El comentario en el libro = $body->id_book fue incertado con exito", 200);
+            return $this->view->response("El comentario en el libro = $body->id_book fue insertado con exito", 200);
             }
         else{
            return $this->view->response("ERROR: El comentario en el libro = $body->id_book no pudo ser insertado", 404);

@@ -32,7 +32,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                                         `<li class="list-group-item"> Comentario: ${comentario.body}<li>`+
                                         `<li class="list-group-item"> Puntaje: ${comentario.score}<li>`+
                                         `<li><button data-id="${comentario.id_comment}" class="eliminar" >Borrar (Adm)</button></li></ul>`
-
                                         lista.innerHTML += html;
                                         }
                                     }
