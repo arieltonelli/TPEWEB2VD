@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2021 a las 21:15:49
+-- Tiempo de generación: 25-11-2021 a las 00:41:28
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -71,19 +71,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id_comment`, `subject`, `body`, `score`, `id_book`, `id_user`) VALUES
-(27, 'Hola', 'PRUEBA', '4', 1, 1),
-(28, 'Hola', 'PRUEBA', '4', 1, 1),
-(29, 'Hola', 'PRUEBA', '4', 1, 1),
-(30, 'Hola', 'PRUEBA', '4', 1, 1),
-(31, 'Hola', 'PRUEBA', '4', 1, 1),
-(32, 'Hola', 'PRUEBA', '4', 1, 1),
-(35, 'eeeeeeeee', 'eeeeeeeeeeeeeeeeeee', '5', 1, 1),
-(36, 'eeeeeeeee', 'eeeeeeeeeeeeeee', '5', 1, 1),
-(38, 'HOLAAAAA', 'listo', '3', 1, 1),
-(40, 'EEEEEEEEEEEEEEEEEE', 'aaaaaa', '5', 1, 1),
-(42, 'Hola', 'Me encanta el tenis', '5', 23, 1),
-(43, 'Hello', 'No me gustó', '1', 24, 7),
-(44, 'Espectacular', 'Me sirve el libro para cocinar', '5', 27, 7);
+(6, 'mmmmmmmmmm', 'muy bueno', '5', 25, 1);
 
 -- --------------------------------------------------------
 
@@ -120,7 +108,7 @@ CREATE TABLE `users` (
   `email` varchar(35) NOT NULL,
   `password` varchar(100) NOT NULL,
   `rol` tinyint(1) NOT NULL,
-  `id_user` int(35) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -132,7 +120,7 @@ INSERT INTO `users` (`email`, `password`, `rol`, `id_user`) VALUES
 ('pedrito@adm.com', '$2y$10$UC1YHI.XzczcInxiSJ1MX.u1KT9moJG3oswayIHsTVAO8ebl8m0Vm', 0, 3),
 ('electra@catmail.com', '$2y$10$ZR1X8ktLlesukMukUWZCaeUTmg.bFeNw2AivfROH7/FsOlPBf94r6', 0, 7),
 ('analia@adm.com', '$2y$10$xM2xp4d7TUtzFpkBYwkUl.ZpgxkYLnxb/txO1KYsRos3ldox/bPAS', 1, 37),
-('juancito@gmail.com', '$2y$10$gsbq/RtLHpy1aksbFFib1ezPhMVn6VX5CogeI76769mx31UJ3lc9y', 0, 57);
+('marcos@gmail.com', '$2y$10$HtfW8AP6PV6fs55ICMwhq.hCtRARofe49z0byEZr6ZJVTDCepMP66', 0, 58);
 
 --
 -- Índices para tablas volcadas
@@ -173,13 +161,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `books`
 --
 ALTER TABLE `books`
-  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `publishers`
@@ -191,7 +179,7 @@ ALTER TABLE `publishers`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(35) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Restricciones para tablas volcadas
@@ -207,8 +195,8 @@ ALTER TABLE `books`
 -- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`),
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `books` (`id_book`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

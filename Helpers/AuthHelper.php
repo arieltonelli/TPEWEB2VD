@@ -3,7 +3,6 @@
 class AuthHelper{
 
     function __construct(){
-
     }
 
     function checkLoggedIn(){

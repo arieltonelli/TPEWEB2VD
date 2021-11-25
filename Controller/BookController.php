@@ -22,6 +22,7 @@ class BookController{
         $this->AuthHelper = new AuthHelper();
         $this->loginModel = new LoginModel();
     }
+    
     function showBooks(){
         $this->AuthHelper->checkLoggedIn();
         $admin = $this->loginModel->getAdmin($_SESSION["email"]);

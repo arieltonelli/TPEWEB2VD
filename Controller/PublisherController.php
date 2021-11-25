@@ -35,14 +35,16 @@ class PublisherController{
 
     function deletePublisher($id){
         $this->AuthHelper->checkLoggedIn(); 
-    try{
-        $this->model->deletePublisherFromDB($id);
-        $this->view->showCategoryLocation();
-    } catch (Exception $e){
-        $message= "No se puede eliminar categoría debido a que tiene libros adentro";
-        $this->view->showCategoryLocation($message);
+        try{
+            $this->model->deletePublisherFromDB($id);
+            $this->view->showCategoryLocation();
+            }
+        catch (Exception $e){
+            $message= "No se puede eliminar categoría debido a que tiene libros adentro";
+            $this->view->showCategoryLocation($message);
+            }
     }
-}
+    
     function viewFormUpdatePublisher($id){
         $this->AuthHelper->checkLoggedIn();
         $admin = $this->loginModel->getAdmin($_SESSION["email"]);
@@ -60,9 +62,5 @@ class PublisherController{
         $admin = $this->loginModel->getAdmin($_SESSION["email"]);
         $publisher= $this->model->getPublisherbyID($id);
         $this->view->showPublisher($publisher, $admin);
-    }
-
-    
-    
-    
+    }    
 }
