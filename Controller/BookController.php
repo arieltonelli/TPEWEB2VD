@@ -33,6 +33,7 @@ class BookController{
 
     function createBook(){
         $this->AuthHelper->checkLoggedIn();
+        /*if (isset($_POST[])){*/
         $this->model->insertBook($_POST['title'], $_POST['author'], $_POST['id_publisher'], $_POST['price']);
         $this->view->showBooksLocation();
     }

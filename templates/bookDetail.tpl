@@ -6,7 +6,7 @@
         <li class="list-group-item active">    Titulo: {$libro->title}</li>
         <li class="list-group-item">    Autor: {$libro->author}</li>
         <li class="list-group-item">    Editorial: <a href="viewPublisher/{$libro->id_publisher}">{$libro->name}</a></li>
-        <li class="list-group-item">    Precio: {$libro->price} </li>
+        <li class="list-group-item">    Precio: $ {$libro->price} ARS</li>
     </ul>
     
     <div class="p-3 mb-2 bg-secondary text-light" >

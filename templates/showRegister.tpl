@@ -2,7 +2,7 @@
 <div class="bg-danger p-3" style="--bs-bg-opacity: .98;">
     <h1>{$titulo}</h1>
     <form action="verifyregister" method="POST">
-        <input placeholder = "email" type="text" name="email" id="email" required>
+        <input placeholder = "email" type="email" name="email" id="email" required>
         <input placeholder = "password" type="password" name="password" id="password" required>
         <input class="btn btn-light" type="submit" value="Registrarse">
     </form>

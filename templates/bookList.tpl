@@ -23,7 +23,7 @@
           <th scope="row"><a href="viewBook/{$book->id_book}">{$book->title}</a></th>
           <td>{$book->author}</td>
           <td>{$book->name}</td>
-          <td>{$book->price}</td>
+          <td>$ {$book->price} ARS</td>
           {if $admin}
             <td><a href="formUpdateBook/{$book->id_book}" class="btn btn-warning">Editar</a></td>
             <td><a href="deleteBook/{$book->id_book}" class="btn btn-danger">Borrar</a></td>

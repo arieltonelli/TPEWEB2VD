@@ -21,7 +21,7 @@
           <th scope="row"><a href="viewBook/{$book->id_book}">{$book->title}</a></th>
           <td>{$book->author}</td>
           <td>{$editorial->name}</td>
-          <td>{$book->price}</td>
+          <td> $ {$book->price}</td>
         </tr>
       {/foreach}
     </tbody>

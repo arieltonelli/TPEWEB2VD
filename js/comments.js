@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         for (let comentario of comentarios){
                             if (comentario.id_book == idLibro){
 
-                                let html =  `<li class="list-group-item"> Usuario: ${comentario.email}<li>`+
+                                let html =  `<li class="list-group-item active"> Usuario: ${comentario.email}<li>`+
                                             `<li class="list-group-item"> Asunto: ${comentario.subject}<li>`+
                                             `<li class="list-group-item"> Comentario: ${comentario.body}<li>`+
                                             `<li class="list-group-item"> Puntaje: ${comentario.score}<li>`;

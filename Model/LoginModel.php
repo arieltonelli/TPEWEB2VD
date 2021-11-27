@@ -23,15 +23,12 @@ class LoginModel{
         return $usuarios;
     }
 
-
     function getAdmin($email){
         $query = $this->db->prepare('SELECT rol FROM users WHERE email = ?');
         $query->execute(array($email)); 
         $admin = $query->fetchColumn();
         return $admin == "1";    
     }
-
-    
 
     function deleteUserFromDB($id){
         $sentencia = $this->db->prepare("DELETE FROM users WHERE id_user=?");
